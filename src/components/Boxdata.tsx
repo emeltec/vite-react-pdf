@@ -4,7 +4,7 @@ import { fnDownloadFile } from '../functions/fnDowloadFile'
 export const Boxdata = () => {
   const actualUrl = window.location.href;
   const urlPdf: any = `${actualUrl}file.pdf`
-  console.log(urlPdf)
+  // console.log(urlPdf)
 
   return (
     <>
@@ -21,22 +21,22 @@ export const Boxdata = () => {
               TIPO DE DOCUMENTO
             </div>
             <div className="flex-1 px-4 py-1">
-              26422131
+              NÚMERO DE DOCUMENTO
             </div>
           </div>
 
           <div className="flex gap-4 font-medium my-4 bodyrow w-full max-sm:flex-col">
             <div className="flex-1 px-4 py-1">
-              CUENTA BT
+            26422131
             </div>
             <div className="flex-1 px-4 py-1">
-              RAZÓN SOCIAL
+              LAMINADOS S.A.C.
             </div>
             <div className="flex-1 px-4 py-1">
-              TIPO DE DOCUMENTO
+              R.U.C.
             </div>
             <div className="flex-1 px-4 py-1">
-              26422131
+              20101228992
             </div>
           </div>
         </div>

@@ -79,19 +79,33 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     marginTop: 6,
     marginBottom: 3
-  }
+  },
+  pageNumber: {
+    position: 'absolute',
+    fontSize: 10,
+    bottom: 20,
+    left: 0,
+    right: 0,
+    textAlign: 'center',
+    color: 'grey',
+  },
 
 });
 
 
-export const PdfDoc = () => (
+export const PdfDoc = () => {
+
+  const actualUrl = window.location.href;
+  const urlLogo: any = `${actualUrl}logo_scotiabank.png`
+
+return (
   <>
     <Document>
       <Page size="A4" style={styles.page}>
-        <View style={styles.contentHeader}>
+        <View style={styles.contentHeader} fixed>
           <View style={styles.logoAndTitle}>
             <View style={{ width: '20%' }}>
-              <Image style={styles.image} src="/logo_scotiabank.png"></Image>
+              <Image style={styles.image} src={urlLogo}></Image>
             </View>
             <View style={{ width: '80%', textAlign: 'right' }}>
               <Text style={styles.titleHeader} fixed>
@@ -101,7 +115,7 @@ export const PdfDoc = () => (
           </View>
 
           <View style={styles.lineSeparator}></View>
-          <Text style={{fontSize:9, color:'red', textAlign:'right'}} fixed>
+          <Text style={{ fontSize: 9, color: 'red', textAlign: 'right' }} fixed>
             Los campos con asterisco(*) son obligatorios
           </Text>
         </View>
@@ -223,13 +237,343 @@ export const PdfDoc = () => (
               </View>
             </View>
 
+
+
+
+
+
+
+
+
           </View>
 
 
 
 
+
+          {/* DUPLICADOS */}
+
+
+          <View style={styles.table}>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '100%' }]}>
+                <Text style={styles.tableCell}>Razón Social *</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, { width: '100%' }]}>
+                <Text style={styles.tableCell}>LAMINADOS SAC</Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>País que Emite la Identificación *</Text>
+              </View>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>RUC o Equivalente *</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>PERU</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>26422131</Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '100%' }]}>
+                <Text style={styles.tableCell}>Actividad Económica *</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, { width: '100%' }]}>
+                <Text style={styles.tableCell}>2211 - FABRICACION DE CUBIERTAS Y CAMARAS DE CAUCHO RECA</Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '25%' }]}>
+                <Text style={styles.tableCell}>Sujeto Obligado *</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '15%' }]}>
+                <Text style={styles.tableCell}>NO</Text>
+              </View>
+
+              <View style={[styles.tableCol, styles.thRow, { width: '45%' }]}>
+                <Text style={styles.tableCell}>¿El cliente tiene Oficial de Cumplimiento?</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '15%' }]}>
+                <Text style={styles.tableCell}> -- </Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>Tipo de Entidad *</Text>
+              </View>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>Tipo de Sociedad *</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>SOCIEDAD CON FINES DE LUCRO</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>SOCIEDAD ANONIMA CERRADA</Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>País de Constitución *</Text>
+              </View>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>Fecha de Constitución *</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>PERÚ</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>29/03/1985</Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '70%' }]}>
+                <Text style={styles.tableCell}>¿El Nombre Comercial es diferente de la Razón Social?</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '30%' }]}>
+                <Text style={styles.tableCell}>NO</Text>
+              </View>
+            </View>
+          </View>
+
+
+
+
+          <View style={styles.table} break>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '100%' }]}>
+                <Text style={styles.tableCell}>Razón Social *</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, { width: '100%' }]}>
+                <Text style={styles.tableCell}>LAMINADOS SAC</Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>País que Emite la Identificación *</Text>
+              </View>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>RUC o Equivalente *</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>PERU</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>26422131</Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '100%' }]}>
+                <Text style={styles.tableCell}>Actividad Económica *</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, { width: '100%' }]}>
+                <Text style={styles.tableCell}>2211 - FABRICACION DE CUBIERTAS Y CAMARAS DE CAUCHO RECA</Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '25%' }]}>
+                <Text style={styles.tableCell}>Sujeto Obligado *</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '15%' }]}>
+                <Text style={styles.tableCell}>NO</Text>
+              </View>
+
+              <View style={[styles.tableCol, styles.thRow, { width: '45%' }]}>
+                <Text style={styles.tableCell}>¿El cliente tiene Oficial de Cumplimiento?</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '15%' }]}>
+                <Text style={styles.tableCell}> -- </Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>Tipo de Entidad *</Text>
+              </View>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>Tipo de Sociedad *</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>SOCIEDAD CON FINES DE LUCRO</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>SOCIEDAD ANONIMA CERRADA</Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>País de Constitución *</Text>
+              </View>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>Fecha de Constitución *</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>PERÚ</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>29/03/1985</Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '70%' }]}>
+                <Text style={styles.tableCell}>¿El Nombre Comercial es diferente de la Razón Social?</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '30%' }]}>
+                <Text style={styles.tableCell}>NO</Text>
+              </View>
+            </View>
+
+          </View>
+
+
+          <View style={styles.table}>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '100%' }]}>
+                <Text style={styles.tableCell}>Razón Social *</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, { width: '100%' }]}>
+                <Text style={styles.tableCell}>LAMINADOS SAC</Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>País que Emite la Identificación *</Text>
+              </View>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>RUC o Equivalente *</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>PERU</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>26422131</Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '100%' }]}>
+                <Text style={styles.tableCell}>Actividad Económica *</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, { width: '100%' }]}>
+                <Text style={styles.tableCell}>2211 - FABRICACION DE CUBIERTAS Y CAMARAS DE CAUCHO RECA</Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '25%' }]}>
+                <Text style={styles.tableCell}>Sujeto Obligado *</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '15%' }]}>
+                <Text style={styles.tableCell}>NO</Text>
+              </View>
+
+              <View style={[styles.tableCol, styles.thRow, { width: '45%' }]}>
+                <Text style={styles.tableCell}>¿El cliente tiene Oficial de Cumplimiento?</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '15%' }]}>
+                <Text style={styles.tableCell}> -- </Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>Tipo de Entidad *</Text>
+              </View>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>Tipo de Sociedad *</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>SOCIEDAD CON FINES DE LUCRO</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>SOCIEDAD ANONIMA CERRADA</Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>País de Constitución *</Text>
+              </View>
+              <View style={[styles.tableCol, styles.thRow, { width: '50%' }]}>
+                <Text style={styles.tableCell}>Fecha de Constitución *</Text>
+              </View>
+            </View>
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>PERÚ</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '50%' }]}>
+                <Text style={styles.tableCell}>29/03/1985</Text>
+              </View>
+            </View>
+
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '70%' }]}>
+                <Text style={styles.tableCell}>¿El Nombre Comercial es diferente de la Razón Social?</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '30%' }]}>
+                <Text style={styles.tableCell}>NO</Text>
+              </View>
+            </View>
+
+          </View>
+
+
+
+
+
+
+
         </View>
+
+        <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
+          `Pag. ${pageNumber} / ${totalPages}`)} fixed>
+        </Text>
+
       </Page>
     </Document>
   </>
-)
+  )
+}
