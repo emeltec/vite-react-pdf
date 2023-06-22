@@ -17,18 +17,20 @@ function App() {
 
         {/* <PdfWeb /> */}
 
+        <PDFDownloadLink className='btn rounded py-1 px-5' document={<PdfDoc />} fileName="somename.pdf">
+          {({ blob, url, loading, error }) =>
+            loading ? 'GENERANDO...' : 'GENERAR'
+          }
+        </PDFDownloadLink>
+
         <PDFViewer style={{width:"100%", height:"70vh"}}>
           <PdfDoc />
         </PDFViewer>
 
-        <PDFDownloadLink document={<PdfDoc />} fileName="somename.pdf">
-          {({ blob, url, loading, error }) =>
-            loading ? 'Loading document...' : 'Download now!'
-          }
-        </PDFDownloadLink>
+        
 
-        <br />
-        <br />
+        <div className='mb-10'></div>
+
       </div>
     </div>
 

@@ -8,6 +8,7 @@
   /* color-scheme: light light; */
   /* color: rgba(255, 255, 255, 0.87); */
   /* background-color: #242424; */
+  --color-orange: #f24613;
 }
 
 * {
@@ -27,6 +28,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -49,7 +51,14 @@ a:hover {
 }
 
 .btn {
-  background: #f24613;
+  background: var(--color-orange);
+  color: #fff;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+a.btn:hover {
+  background: var(--color-orange);
   color: #fff;
 }
 
@@ -60,7 +69,8 @@ table {
   border-collapse: collapse;
 }
 
-table tr th, table tr td {
+table tr th,
+table tr td {
   border: 1px solid #777;
   padding: 3px 8px;
   text-align: left;
@@ -70,4 +80,3 @@ table tr th {
   font-weight: bold;
   background: #ddd;
 }
-
