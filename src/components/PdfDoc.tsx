@@ -1,27 +1,37 @@
-import { Page, View, Text, Document, StyleSheet } from '@react-pdf/renderer'
+import { Page, View, Text, Document, Image, StyleSheet } from '@react-pdf/renderer'
 import React from 'react'
 
 const borderColor = '#555555'
 const bgCellColor = '#dddeee'
 
 const styles = StyleSheet.create({
-  body: {
-    paddingTop: 20,
+  page: {
+    paddingTop: 15,
     paddingBottom: 65,
     paddingHorizontal: 35,
+    fontSize: 12,
   },
+
+  contentHeader: {
+    marginBottom: 20,
+  },
+
+  titleHeader: {
+    fontSize: 14,
+    textAlign: 'right',
+  },
+  logoAndTitle: {
+    flexDirection: "row",
+    width: '100%'
+  },
+
   subTitle: {
-    fontSize: 16,
+    fontSize: 14,
     textAlign: 'left',
   },
-  general: {
+
+  contentInfo: {
     fontSize: 12,
-  },
-  header: {
-    fontSize: 12,
-    marginBottom: 20,
-    textAlign: 'center',
-    color: 'grey',
   },
 
   table: {
@@ -32,12 +42,14 @@ const styles = StyleSheet.create({
     borderRightWidth: 0,
     borderBottomWidth: 0,
     borderColor: borderColor,
+    marginTop: 6
   },
   tableRow: {
     margin: "auto",
     flexDirection: "row",
     width: '100%'
   },
+
   tableCol: {
     width: "100%",
     borderStyle: "solid",
@@ -56,6 +68,17 @@ const styles = StyleSheet.create({
   thRow: {
     backgroundColor: bgCellColor,
     fontWeight: 'bold'
+  },
+  image: {
+    height: 25,
+  },
+
+  lineSeparator: {
+    width: "100%",
+    borderStyle: "solid",
+    borderBottomWidth: 1,
+    marginTop: 6,
+    marginBottom: 3
   }
 
 });
@@ -64,17 +87,44 @@ const styles = StyleSheet.create({
 export const PdfDoc = () => (
   <>
     <Document>
-      <Page size="A4" style={styles.body}>
-        <Text style={styles.header} fixed>
-          Solicitud de cuentas y Servicios Comerciales (BASA)
-        </Text>
-        <View style={styles.general}>
+      <Page size="A4" style={styles.page}>
+        <View style={styles.contentHeader}>
+          <View style={styles.logoAndTitle}>
+            <View style={{ width: '20%' }}>
+              <Image style={styles.image} src="/logo_scotiabank.png"></Image>
+            </View>
+            <View style={{ width: '80%', textAlign: 'right' }}>
+              <Text style={styles.titleHeader} fixed>
+                Solicitud de cuentas y Servicios Comerciales (BASA)
+              </Text>
+            </View>
+          </View>
+
+          <View style={styles.lineSeparator}></View>
+          <Text style={{fontSize:9, color:'red', textAlign:'right'}} fixed>
+            Los campos con asterisco(*) son obligatorios
+          </Text>
+        </View>
+
+
+        <View style={styles.contentInfo}>
+
+          <View style={{ flexDirection: 'row', fontSize: 14, fontWeight: 700, marginBottom: 4 }}>
+            <View style={{ width: '50%' }}>
+              <Text>Fecha: 15/06/2023</Text>
+            </View>
+            <View style={{ width: '50%', textAlign: 'right' }}>
+              <Text>Persona Jurídica</Text>
+            </View>
+          </View>
+
           <View>
             <Text style={styles.subTitle}>Datos Básicos</Text>
           </View>
 
-          <View style={styles.table}>
+          <View style={styles.lineSeparator}></View>
 
+          <View style={styles.table}>
             <View style={styles.tableRow}>
               <View style={[styles.tableCol, styles.thRow, { width: '100%' }]}>
                 <Text style={styles.tableCell}>Razón Social *</Text>
@@ -164,10 +214,19 @@ export const PdfDoc = () => (
               </View>
             </View>
 
+            <View style={styles.tableRow}>
+              <View style={[styles.tableCol, styles.thRow, { width: '70%' }]}>
+                <Text style={styles.tableCell}>¿El Nombre Comercial es diferente de la Razón Social?</Text>
+              </View>
+              <View style={[styles.tableCol, { width: '30%' }]}>
+                <Text style={styles.tableCell}>NO</Text>
+              </View>
+            </View>
+
           </View>
 
 
-          
+
 
         </View>
       </Page>
