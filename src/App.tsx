@@ -12,12 +12,12 @@ function App() {
   return (
     <div className="main">
       <Header />
-      <div className="container mx-auto">
+      <div className="container mx-auto max-sm:px-4 max-lg:px-5 xl:px-10">
         <Boxdata />
 
         {/* <PdfWeb /> */}
 
-        <PDFDownloadLink className='btn rounded py-1 px-5' document={<PdfDoc />} fileName="somename.pdf">
+        <PDFDownloadLink className='btn rounded py-1 px-5' document={<PdfDoc />} fileName="document_basa.pdf">
           {({ blob, url, loading, error }) =>
             loading ? 'GENERANDO...' : 'GENERAR'
           }
