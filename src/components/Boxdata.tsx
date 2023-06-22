@@ -2,7 +2,9 @@ import React from 'react'
 import { fnDownloadFile } from '../functions/fnDowloadFile'
 
 export const Boxdata = () => {
-  const url: any = 'http://localhost:5173/file.pdf'
+  const actualUrl = window.location.href;
+  const urlPdf: any = `${actualUrl}file.pdf`
+  console.log(urlPdf)
 
   return (
     <>
@@ -40,7 +42,7 @@ export const Boxdata = () => {
         <div className="flex mt-5">
           <div className="flex-1">
             {/* <button className="btn rounded py-1 px-5" onClick={download}>GENERAR</button> */}
-            <button className="btn rounded py-1 px-5" onClick={()=>fnDownloadFile(url)}>GENERAR</button>
+            <button className="btn rounded py-1 px-5" onClick={()=>fnDownloadFile(urlPdf)}>GENERAR</button>
             {/* <button className="btn rounded py-1 px-5" onClick={download}>GENERAR</button> */}
             {/* <a download={'archivo.pdf'} href={downloadUrl}>{url}</a> */}
           </div>
