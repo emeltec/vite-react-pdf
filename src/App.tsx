@@ -5,15 +5,28 @@ import { Boxdata } from './components/Boxdata'
 import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer'
 import { PdfDoc } from './components/PdfDoc'
 import { PdfWeb } from './components/PdfWeb'
+import { useQuery } from 'react-query'
+
+
+const getData = async() => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users')
+  const data = await res.json()
+  return data
+}
 
 function App() {
+
+  const query = useQuery(
+    ['users'],
+    getData
+  )
 
 
   return (
     <div className="main">
       <Header />
       <div className="container mx-auto max-sm:px-4 max-lg:px-5 xl:px-10">
-        <Boxdata />
+        <Boxdata data={query} />
 
         {/* <PdfWeb /> */}
 

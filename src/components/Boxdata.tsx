@@ -1,10 +1,11 @@
 import React from 'react'
 import { fnDownloadFile } from '../functions/fnDowloadFile'
 
-export const Boxdata = () => {
+export const Boxdata = ({data}:any) => {
   const actualUrl = window.location.href;
   const urlPdf: any = `${actualUrl}file.pdf`
   // console.log(urlPdf)
+  console.log(data)
 
   return (
     <>
