@@ -6,20 +6,30 @@ import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer'
 import { PdfDoc } from './components/PdfDoc'
 import { PdfWeb } from './components/PdfWeb'
 import { useQuery } from 'react-query'
+import { useEffect } from 'react'
+import { useGetData } from './hooks/useGetData'
+import { apiCore } from './api/api-core'
+import { DATA } from './data/data'
 
-
-const getData = async() => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/users')
-  const data = await res.json()
-  return data
+const getDataBasa = async() => {
+  const {data} = await apiCore.get('/users');
+  return data;
 }
+
 
 function App() {
 
+  // console.log(DATA)
+  
+  // const query = useGetData();
   const query = useQuery(
     ['users'],
-    getData
+    getDataBasa,
+    {
+      refetchOnWindowFocus: false
+    }
   )
+  
 
 
   return (
