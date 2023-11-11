@@ -6,4 +6,7 @@ export default defineConfig({
   plugins: [react()],
   base:'/vite-react-pdf/', //publicar en subcarpeta
   //base:'/',
+  build: {
+    outDir: 'docs'
+  }
 })
